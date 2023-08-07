@@ -1,6 +1,5 @@
 package com.example.shoppingverse.Dto.Request;
 
-import com.example.shoppingverse.Enum.Gender;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,14 +10,12 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class CustomerRequestDto {
+public class CheckoutCartRequestDto {
 
-    String name;
+    String customerEmail;
 
-    String emailId;
+    String cardNo;
 
-    String mobNo;
-
-    Gender gender;
+    int cvv;
 
 }

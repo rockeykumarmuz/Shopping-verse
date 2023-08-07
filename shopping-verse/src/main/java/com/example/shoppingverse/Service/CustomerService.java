@@ -35,6 +35,7 @@ public class CustomerService {
         cart.setTotalCart(0);
         cart.setCustomer(customer);
 
+        customer.setCart(cart);
         Customer savedCustomer = customerRepositry.save(customer);
 
 //        CustomerResponseDto customerResponseDto = CustomerResponseDto.builder()

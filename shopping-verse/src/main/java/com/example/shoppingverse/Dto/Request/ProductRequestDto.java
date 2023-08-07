@@ -1,16 +1,14 @@
 package com.example.shoppingverse.Dto.Request;
 
 import com.example.shoppingverse.Enum.ProductCategory;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@Builder
 public class ProductRequestDto {
 
     String sellerEmailId;

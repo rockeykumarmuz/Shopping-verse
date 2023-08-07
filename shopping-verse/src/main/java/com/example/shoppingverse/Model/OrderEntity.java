@@ -1,11 +1,10 @@
 package com.example.shoppingverse.Model;
 
+import com.example.shoppingverse.Dto.Response.ItemResponseDto;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -17,6 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Table(name="order_info")
+@Builder
 public class OrderEntity {
 
     @Id
@@ -25,6 +25,7 @@ public class OrderEntity {
 
     String orderId;
 
+    @CreationTimestamp
     Date orderDate;
 
     String cardUsed;

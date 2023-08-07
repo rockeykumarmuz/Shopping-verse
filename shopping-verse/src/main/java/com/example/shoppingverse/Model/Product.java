@@ -2,6 +2,7 @@ package com.example.shoppingverse.Model;
 
 import com.example.shoppingverse.Enum.ProductCategory;
 import com.example.shoppingverse.Enum.ProductStatus;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;

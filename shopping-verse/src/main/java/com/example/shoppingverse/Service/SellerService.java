@@ -22,9 +22,9 @@ public class SellerService {
 
         Seller seller= SellerTransformer.sellerRequestDtoToSeller(sellerRequestDto);
 
-        Seller savedSeller = sellerRepositry.save(seller);
+        seller = sellerRepositry.save(seller);
 
-        return SellerTransformer.sellerToSellerResponseDto(savedSeller);
+        return SellerTransformer.sellerToSellerResponseDto(seller);
 
     }
 
