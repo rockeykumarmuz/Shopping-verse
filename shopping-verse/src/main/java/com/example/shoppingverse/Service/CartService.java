@@ -49,7 +49,6 @@ public class CartService {
 
         Cart cart=customer.getCart();
 
-
         cart.setTotalCart(cart.getTotalCart() + itemRequestDto.getRequiredQuantity()*product.getPrice());
 
         item.setCart(cart);

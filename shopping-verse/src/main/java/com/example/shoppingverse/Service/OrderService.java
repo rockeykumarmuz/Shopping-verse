@@ -45,7 +45,7 @@ public class OrderService {
             throw new CustomerNotFoundException("Sorry! customer doesn't exist.");
         }
 
-        Optional<Product> optionalProduct= productRepositry.findById(orderRequestDto.getProductId());
+        Optional<Product> optionalProduct = productRepositry.findById(orderRequestDto.getProductId());
         if(!optionalProduct.isPresent()) {
             throw new ProductNotFoundException("Sorry! product doesn't exist.");
         }
@@ -82,6 +82,7 @@ public class OrderService {
         Item item = ItemTranformer.ItemRequestDtoToItem(orderRequestDto.getRequiredQuantity());
         item.setProduct(product);
         item.setOrderEntity(orderEntity);
+
 
         // set customer into the orderEntity
         orderEntity.setCustomer(customer);

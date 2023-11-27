@@ -23,7 +23,7 @@ public class Customer {
 
     String name;
 
-    @Column(unique = true)
+    @Column(unique = true, nullable = false)
     String emailId;
 
     @Column(unique = true, nullable = false)

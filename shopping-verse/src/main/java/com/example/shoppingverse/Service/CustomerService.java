@@ -3,6 +3,7 @@ package com.example.shoppingverse.Service;
 import com.example.shoppingverse.Controller.CustomerController;
 import com.example.shoppingverse.Dto.Request.CustomerRequestDto;
 import com.example.shoppingverse.Dto.Response.CustomerResponseDto;
+import com.example.shoppingverse.Exception.CustomerNotFoundException;
 import com.example.shoppingverse.Model.Cart;
 import com.example.shoppingverse.Model.Customer;
 import com.example.shoppingverse.Model.OrderEntity;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CustomerService {
@@ -29,21 +31,26 @@ public class CustomerService {
 //        customer.setEmailId(customerRequestDto.getEmailId());
 //        customer.setMobNo(customerRequestDto.getMobNo());
 
-    Customer customer= CustomerTransformer.cutomerRequestDtoToCustomer(customerRequestDto);
+    Customer customer = customerRepositry.findByEmailId(customerRequestDto.getEmailId());
+    if(customer==null) {
+        throw new CustomerNotFoundException("Sorry! customer doesn't exist");
+    }
+
+    customer= CustomerTransformer.cutomerRequestDtoToCustomer(customerRequestDto);
         Cart cart= new Cart();
 
         cart.setTotalCart(0);
         cart.setCustomer(customer);
-
-        customer.setCart(cart);
-        Customer savedCustomer = customerRepositry.save(customer);
-
 //        CustomerResponseDto customerResponseDto = CustomerResponseDto.builder()
 //                .name(savedCustomer.getName())
 //                .emailId(savedCustomer.getEmailId())
 //                .gender(savedCustomer.getGender())
 //                .mobNo(savedCustomer.getMobNo())
 //                .build();
+
+        customer.setCart(cart);
+        Customer savedCustomer = customerRepositry.save(customer);
+
 
         return CustomerTransformer.cutomerToCustomerResponseDto(savedCustomer);
 

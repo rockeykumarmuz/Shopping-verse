@@ -16,4 +16,7 @@ public interface CustomerRepositry extends JpaRepository<Customer, Integer> {
 
     @Query(value = "select * from customer where age between 20 and 30 and gender=\"FEMALE\" ", nativeQuery = true)
     List<Customer> getAllFemaleCustomerAgeBwn2030(int k);
+
+
 }
+

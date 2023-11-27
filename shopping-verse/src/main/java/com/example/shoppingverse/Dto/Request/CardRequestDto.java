@@ -29,5 +29,4 @@ public class CardRequestDto {
 
     CardType cardType;
 
-
 }

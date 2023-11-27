@@ -51,6 +51,7 @@ public class CardService {
 
     }
 
+    // method to convert user card as sa masked card we will only show user to last 4 digits of card no else not
     public String generatedMaskedCard(String cardNo) {
 
         int cardLength = cardNo.length();
